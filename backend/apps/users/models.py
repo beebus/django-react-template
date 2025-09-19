@@ -73,13 +73,8 @@ class EmailUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
-    class Meta:
-        permissions = (
-            ('view_emailuser', 'Can view email users'),
-        )
-
-    def __unicode__(self):
-        return self.email
+    def __str__(self):
+        return str(self.email)
 
     def get_short_name(self):
         return '{first_name}'.format(

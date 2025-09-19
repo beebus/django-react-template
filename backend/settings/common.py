@@ -2,10 +2,13 @@ import os
 from sys import path
 from os.path import join
 
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Define the default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 path.append(join(BASE_DIR, 'apps'))
 
@@ -23,6 +26,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "django_extensions",
     "rest_framework",
+    "django_filters",
 ]
 
 LOCAL_APPS = [
@@ -31,13 +35,12 @@ LOCAL_APPS = [
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.auth.middleware.SessionAuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
@@ -114,7 +117,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "backend.pagination.StandardPagination",
     "DEFAULT_FILTER_BACKENDS": (
         "rest_framework.filters.SearchFilter",
-        "rest_framework.filters.DjangoFilterBackend",
+        "django_filters.rest_framework.DjangoFilterBackend",
     ),
 }
 
