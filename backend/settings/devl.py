@@ -1,6 +1,6 @@
 import os
 
-from .common import *
+from .common import BASE_DIR, STATICFILES_DIRS
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-dev-key-for-testing-only'
@@ -18,5 +18,7 @@ DATABASES = {
 INTERNAL_IPS = ['192.168.56.1', '127.0.0.1']
 
 STATICFILES_DIRS.append(
-    os.path.join(BASE_DIR, os.pardir, 'frontend', 'build'),
+    os.path.join(BASE_DIR, os.pardir, 'frontend', 'dist'),
 )
+
+STATIC_ROOT = os.path.join(BASE_DIR, os.pardir, 'staticfiles')

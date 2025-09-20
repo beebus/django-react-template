@@ -9,8 +9,7 @@ from django.shortcuts import render, redirect
 def index(request):
     if request.user.is_authenticated:
         return redirect(reverse("app"))
-    else:
-        return redirect(settings.LOGIN_REDIRECT_URL)
+    return redirect(settings.LOGIN_REDIRECT_URL)
 
 
 @login_required
