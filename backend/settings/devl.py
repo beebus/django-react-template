@@ -1,6 +1,6 @@
 import os
 
-from .common import BASE_DIR, STATICFILES_DIRS
+from .common import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-dev-key-for-testing-only'

@@ -14,26 +14,18 @@ path.append(join(BASE_DIR, 'apps'))
 
 ALLOWED_HOSTS = []
 
-DJANGO_APPS = [
+INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-]
-
-THIRD_PARTY_APPS = [
     "django_extensions",
     "rest_framework",
     "django_filters",
+    "backend.apps.users"
 ]
-
-LOCAL_APPS = [
-    "users"
-]
-
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
